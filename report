@@ -1,0 +1,32 @@
+const Discord = require('discord.js')
+
+
+module.exports = {
+    run: (client, message, args) => {
+
+
+        if (args. length ===0){
+        return message.reply("Use: `_report <bug>`")
+        }
+    
+    let sugestao = args.join(" ");
+    
+    const embed22 = new Discord.RichEmbed()
+    .setAuthor("Um bug foi reportado")
+    .addField("Por:", message.author)
+    .addField("Bug:", "`"+sugestao+"`")
+    .setColor("RANDOM")
+    .setThumbnail(client.user.avatarURL)
+    
+    message.delete()  
+    let bChannel = client.channels.get("662444275497435186").send(embed22).then(async msg => {
+
+        await msg.react("✅")
+        await msg.react("❌")
+
+    })
+    }
+    
+    }
+    
+
